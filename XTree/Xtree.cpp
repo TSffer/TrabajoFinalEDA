@@ -268,35 +268,7 @@ class Xtree
                 }
             }
         }
-
-        void Select_picks(Nodo* n,int &a,int &b)
-        {
-            a = 0;
-            b = 0;
-            double min_distance_lowerBound = numeric_limits<double>::max();//
-            double min_distance_upperBound = numeric_limits<double>::max();//
-            double temp_area = 0.0;
-            //cout<<"Region: ffff"<<n->children.size()<<endl;
-            for(int i = 0;i < n->children.size() ; i++)
-            {
-                temp_area = Distancia(n->lowerBound,n->children[i]->upperBound);
-                if(temp_area <= min_distance_lowerBound)
-                {
-                    min_distance_lowerBound = temp_area;
-                    a = i;
-                }
-                temp_area = Distancia(n->upperBound,n->children[i]->lowerBound);
-                if(temp_area <= min_distance_upperBound)
-                {
-                    if(i != a)
-                    {
-                        min_distance_upperBound = temp_area;
-                        b = i;
-                    }
-                }
-            }
-        }
-
+        
 /*
         int Insert(vector<double> obj,Nodo **new_nodo)
         {
@@ -437,8 +409,8 @@ class Xtree
              
                 int Seed_1 = 0;
                 int Seed_2 = 0;   
-
-                Select_picks(*nodo,Seed_1,Seed_2);
+                
+                Select_picks__(*nodo,Seed_1,Seed_2);
                 Nodo* regionLeft = new Nodo((*nodo)->children[Seed_1]);
                 Nodo* regionRight = new Nodo((*nodo)->children[Seed_2]);
 

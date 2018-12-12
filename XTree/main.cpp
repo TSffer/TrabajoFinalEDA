@@ -89,8 +89,8 @@ int main()
         cout<<"\n"<<endl;
         Point.clear();
         Point = Read_Input(input);
-        cout<<input<<endl;
-        cout<<Point.size()<<endl;
+        //cout<<input<<endl;
+        cout<<"*******************************Query*******************************"<<endl;
         gettimeofday(&ti,NULL);
         xt->kNN_Search(xt->m_head,Point,n);
         gettimeofday(&tf,NULL);
